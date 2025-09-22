@@ -1,0 +1,233 @@
+00000100  4F                dec di
+00000101  52                push dx
+00000102  47                inc di
+00000103  2030              and [bx+si],dh
+00000105  0A4249            or al,[bp+si+0x49]
+00000108  54                push sp
+00000109  53                push bx
+0000010A  2031              and [bx+di],dh
+0000010C  360A0A            or cl,[ss:bp+si]
+0000010F  6A6D              push byte +0x6d
+00000111  7020              jo 0x133
+00000113  307837            xor [bx+si+0x37],bh
+00000116  6330              arpl [bx+si],si
+00000118  3A7374            cmp dh,[bp+di+0x74]
+0000011B  61                popa
+0000011C  7274              jc 0x192
+0000011E  0A7374            or dh,[bp+di+0x74]
+00000121  61                popa
+00000122  7274              jc 0x198
+00000124  3A0A              cmp cl,[bp+si]
+00000126  2020              and [bx+si],ah
+00000128  2020              and [bx+si],ah
+0000012A  636C69            arpl [si+0x69],bp
+0000012D  203B              and [bp+di],bh
+0000012F  20436C            and [bp+di+0x6c],al
+00000132  6561              gs popa
+00000134  7220              jc 0x156
+00000136  696E746572        imul bp,[bp+0x74],word 0x7265
+0000013B  7275              jc 0x1b2
+0000013D  7074              jo 0x1b3
+0000013F  730A              jnc 0x14b
+00000141  2020              and [bx+si],ah
+00000143  2020              and [bx+si],ah
+00000145  6D                insw
+00000146  6F                outsw
+00000147  7620              jna 0x169
+00000149  61                popa
+0000014A  782C              js 0x178
+0000014C  2030              and [bx+si],dh
+0000014E  7837              js 0x187
+00000150  6330              arpl [bx+si],si
+00000152  0A20              or ah,[bx+si]
+00000154  2020              and [bx+si],ah
+00000156  206D6F            and [di+0x6f],ch
+00000159  7620              jna 0x17b
+0000015B  64732C            fs jnc 0x18a
+0000015E  206178            and [bx+di+0x78],ah
+00000161  0A20              or ah,[bx+si]
+00000163  2020              and [bx+si],ah
+00000165  206D6F            and [di+0x6f],ch
+00000168  7620              jna 0x18a
+0000016A  65732C            gs jnc 0x199
+0000016D  206178            and [bx+di+0x78],ah
+00000170  0A20              or ah,[bx+si]
+00000172  2020              and [bx+si],ah
+00000174  206D6F            and [di+0x6f],ch
+00000177  7620              jna 0x199
+00000179  61                popa
+0000017A  782C              js 0x1a8
+0000017C  2030              and [bx+si],dh
+0000017E  7830              js 0x1b0
+00000180  300A              xor [bp+si],cl
+00000182  2020              and [bx+si],ah
+00000184  2020              and [bx+si],ah
+00000186  6D                insw
+00000187  6F                outsw
+00000188  7620              jna 0x1aa
+0000018A  7373              jnc 0x1ff
+0000018C  2C20              sub al,0x20
+0000018E  61                popa
+0000018F  780A              js 0x19b
+00000191  2020              and [bx+si],ah
+00000193  2020              and [bx+si],ah
+00000195  6D                insw
+00000196  6F                outsw
+00000197  7620              jna 0x1b9
+00000199  7370              jnc 0x20b
+0000019B  2C20              sub al,0x20
+0000019D  307837            xor [bx+si+0x37],bh
+000001A0  6330              arpl [bx+si],si
+000001A2  300A              xor [bp+si],cl
+000001A4  0A20              or ah,[bx+si]
+000001A6  2020              and [bx+si],ah
+000001A8  207374            and [bp+di+0x74],dh
+000001AB  69203B20          imul sp,[bx+si],word 0x203b
+000001AF  45                inc bp
+000001B0  6E                outsb
+000001B1  61                popa
+000001B2  626C65            bound bp,[si+0x65]
+000001B5  7320              jnc 0x1d7
+000001B7  696E746572        imul bp,[bp+0x74],word 0x7265
+000001BC  7275              jc 0x233
+000001BE  7074              jo 0x234
+000001C0  730A              jnc 0x1cc
+000001C2  2020              and [bx+si],ah
+000001C4  2020              and [bx+si],ah
+000001C6  6D                insw
+000001C7  6F                outsw
+000001C8  7620              jna 0x1ea
+000001CA  7369              jnc 0x235
+000001CC  2C20              sub al,0x20
+000001CE  6D                insw
+000001CF  657373            gs jnc 0x245
+000001D2  61                popa
+000001D3  67650A20          or ah,[gs:eax]
+000001D7  2020              and [bx+si],ah
+000001D9  206361            and [bp+di+0x61],ah
+000001DC  6C                insb
+000001DD  6C                insb
+000001DE  207072            and [bx+si+0x72],dh
+000001E1  696E740A20        imul bp,[bp+0x74],word 0x200a
+000001E6  2020              and [bx+si],ah
+000001E8  206A6D            and [bp+si+0x6d],ch
+000001EB  7020              jo 0x20d
+000001ED  240A              and al,0xa
+000001EF  2020              and [bx+si],ah
+000001F1  2020              and [bx+si],ah
+000001F3  0A7072            or dh,[bx+si+0x72]
+000001F6  696E743A0A        imul bp,[bp+0x74],word 0xa3a
+000001FB  2020              and [bx+si],ah
+000001FD  2020              and [bx+si],ah
+000001FF  6D                insw
+00000200  6F                outsw
+00000201  7620              jna 0x223
+00000203  62782C            bound di,[bx+si+0x2c]
+00000206  2030              and [bx+si],dh
+00000208  0A2E6C6F          or ch,[0x6f6c]
+0000020C  6F                outsw
+0000020D  703A              jo 0x249
+0000020F  2020              and [bx+si],ah
+00000211  2020              and [bx+si],ah
+00000213  0A20              or ah,[bx+si]
+00000215  2020              and [bx+si],ah
+00000217  206C6F            and [si+0x6f],ch
+0000021A  647362            fs jnc 0x27f
+0000021D  0A20              or ah,[bx+si]
+0000021F  2020              and [bx+si],ah
+00000221  20636D            and [bp+di+0x6d],ah
+00000224  7020              jo 0x246
+00000226  61                popa
+00000227  6C                insb
+00000228  2C20              sub al,0x20
+0000022A  300A              xor [bp+si],cl
+0000022C  2020              and [bx+si],ah
+0000022E  2020              and [bx+si],ah
+00000230  6A65              push byte +0x65
+00000232  202E646F          and [0x6f64],ch
+00000236  6E                outsb
+00000237  650A20            or ah,[gs:bx+si]
+0000023A  2020              and [bx+si],ah
+0000023C  206361            and [bp+di+0x61],ah
+0000023F  6C                insb
+00000240  6C                insb
+00000241  207072            and [bx+si+0x72],dh
+00000244  696E745F63        imul bp,[bp+0x74],word 0x635f
+00000249  686172            push word 0x7261
+0000024C  200A              and [bp+si],cl
+0000024E  2020              and [bx+si],ah
+00000250  2020              and [bx+si],ah
+00000252  6A6D              push byte +0x6d
+00000254  7020              jo 0x276
+00000256  2E6C              cs insb
+00000258  6F                outsw
+00000259  6F                outsw
+0000025A  700A              jo 0x266
+0000025C  2E646F            fs outsw
+0000025F  6E                outsb
+00000260  653A20            cmp ah,[gs:bx+si]
+00000263  2020              and [bx+si],ah
+00000265  200A              and [bp+si],cl
+00000267  2020              and [bx+si],ah
+00000269  2020              and [bx+si],ah
+0000026B  7265              jc 0x2d2
+0000026D  740A              jz 0x279
+0000026F  0A7072            or dh,[bx+si+0x72]
+00000272  696E745F63        imul bp,[bp+0x74],word 0x635f
+00000277  686172            push word 0x7261
+0000027A  3A20              cmp ah,[bx+si]
+0000027C  2020              and [bx+si],ah
+0000027E  200A              and [bp+si],cl
+00000280  2020              and [bx+si],ah
+00000282  2020              and [bx+si],ah
+00000284  6D                insw
+00000285  6F                outsw
+00000286  7620              jna 0x2a8
+00000288  61                popa
+00000289  682C20            push word 0x202c
+0000028C  306568            xor [di+0x68],ah
+0000028F  0A20              or ah,[bx+si]
+00000291  2020              and [bx+si],ah
+00000293  20696E            and [bx+di+0x6e],ch
+00000296  7420              jz 0x2b8
+00000298  307831            xor [bx+si+0x31],bh
+0000029B  3020              xor [bx+si],ah
+0000029D  200A              and [bp+si],cl
+0000029F  2020              and [bx+si],ah
+000002A1  2020              and [bx+si],ah
+000002A3  7265              jc 0x30a
+000002A5  740A              jz 0x2b1
+000002A7  0A6D65            or ch,[di+0x65]
+000002AA  7373              jnc 0x31f
+000002AC  61                popa
+000002AD  67653A20          cmp ah,[gs:eax]
+000002B1  646220            bound sp,[fs:bx+si]
+000002B4  27                daa
+000002B5  4B                dec bx
+000002B6  6F                outsw
+000002B7  7265              jc 0x31e
+000002B9  6E                outsb
+000002BA  20626F            and [bp+si+0x6f],ah
+000002BD  207A6E            and [bp+si+0x6e],bh
+000002C0  6F                outsw
+000002C1  7265              jc 0x328
+000002C3  6C                insb
+000002C4  27                daa
+000002C5  2C20              sub al,0x20
+000002C7  300A              xor [bp+si],cl
+000002C9  0A7469            or dh,[si+0x69]
+000002CC  6D                insw
+000002CD  657320            gs jnc 0x2f0
+000002D0  353130            xor ax,0x3031
+000002D3  2D2824            sub ax,0x2428
+000002D6  202D              and [di],ch
+000002D8  2024              and [si],ah
+000002DA  2429              and al,0x29
+000002DC  206462            and [si+0x62],ah
+000002DF  2030              and [bx+si],dh
+000002E1  0A6477            or ah,[si+0x77]
+000002E4  2030              and [bx+si],dh
+000002E6  7841              js 0x329
+000002E8  41                inc cx
+000002E9  353520            xor ax,0x2035
+000002EC  0A                db 0x0a
