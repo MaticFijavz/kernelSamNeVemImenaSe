@@ -56,6 +56,9 @@ dkms.conf
 
 
 #extra
-./bin/*
-./build/*
+bin/os.bin
+bin/kernel.bin
+bin/boot.bin
+build/kernel.asm.o
+build/kernelfull.o
 .vscode/
