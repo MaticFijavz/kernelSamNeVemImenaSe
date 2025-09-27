@@ -56,5 +56,5 @@ dkms.conf
 
 
 #extra
-bin/*
-build/*
+./bin/*
+./build/*
