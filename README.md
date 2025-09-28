@@ -6,9 +6,12 @@ nino hoce dat ime TetOS, whatever stari
 
 Makefile instructions:
 
-./build.sh: compiles the bootloader and kernel and needed object/binary files
+./compile.sh: compiles the bootloader and kernel and needed object/binary files
 
 make clean: remove the compiled binaries
 
 DEPRECATED, need target and prefix exporting:
-make (all): compile the (for now) bootloader and the 32 bit protected mode kernel
+make (all): 
+compile the (for now) bootloader and the 32 bit protected mode kernel
+
+Svaki čovjek ima svoj blues
