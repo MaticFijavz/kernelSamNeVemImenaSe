@@ -55,6 +55,5 @@ void print(const char* str){
 
 void kernel_main(){
     terminal_initialize();
-    print("koren bo znorel\njebote newline");
-
+    print("test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3");
 }

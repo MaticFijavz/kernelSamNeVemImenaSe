@@ -61,4 +61,5 @@ bin/kernel.bin
 bin/boot.bin
 build/kernel.asm.o
 build/kernelfull.o
+build/kernel.o
 .vscode/
