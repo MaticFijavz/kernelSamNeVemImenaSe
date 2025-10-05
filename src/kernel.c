@@ -1,4 +1,5 @@
 #include "kernel.h"
+#include "idt/idt.h"
 #include <stddef.h>
 #include <stdint.h>
 
@@ -53,7 +54,14 @@ void print(const char* str){
     }
 }
 
+extern void problem();
+
 void kernel_main(){
     terminal_initialize();
-    print("test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3");
+    print("test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3test 3\njebote newline ");
+    
+    //initialize interrupt descriptor table
+    idt_init();
+
+    //problem(); why does this cause problems?????? i didnt setup interrupts for 32 :/
 }
