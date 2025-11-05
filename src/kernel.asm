@@ -3,7 +3,6 @@
 global _start
 global problem
 
-
 extern kernel_main
 
 CODE_SEG equ 0x08
@@ -27,9 +26,5 @@ _start:
     call kernel_main
 
     jmp $
-
-
-problem:
-    int 32
 
 times 512-($ - $$) db 0

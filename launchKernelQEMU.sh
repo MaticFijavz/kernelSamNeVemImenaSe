@@ -1,2 +1,2 @@
 #!/bin/bash
-qemu-system-x86_64 -hda ./bin/os.bin
+qemu-system-x86_64 -hda ./bin/os.bin -d int -no-reboot
