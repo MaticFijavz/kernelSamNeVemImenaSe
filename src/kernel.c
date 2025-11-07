@@ -75,5 +75,4 @@ void kernel_main()
     terminal_initialize();
     print("hey J.K. (jost Klancik). terminal ne podpira posebne ASCII karakterje (se)");
     idt_init();// Initialize the interrupt descriptor table
-    outb(0x60, 0xff);
 }

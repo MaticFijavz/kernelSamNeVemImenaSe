@@ -1,7 +1,7 @@
 [BITS 32]
 
 global _start
-global problem
+global divbyzero
 
 extern kernel_main
 
@@ -23,8 +23,26 @@ _start:
     or al, 2
     out 0x92, al
 
+    ; Remap the master PIC
+    mov al, 00010001b
+    out 0x20, al ; Tell master PIC
+
+    mov al, 0x20 ; int 0x20 is where the master ISR should start
+    out 0x21, al
+
+    mov al, 00000001b
+    out 0x21, al
+    ; end master PIC remap
+
+    ;Enable interrupts lol forgot this 
+    sti
+    
     call kernel_main
 
     jmp $
+
+divbyzero:
+    mov edx, 0
+    div edx
 
 times 512-($ - $$) db 0
