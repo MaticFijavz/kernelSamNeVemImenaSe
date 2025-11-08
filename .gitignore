@@ -67,3 +67,4 @@ build/idt/idt.o
 build/idt/memory.o
 .vscode/
 .clangd
+.cache/

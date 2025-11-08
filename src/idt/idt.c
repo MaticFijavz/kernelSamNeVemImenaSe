@@ -10,6 +10,7 @@ struct idtr_desc idtr_descriptor;
 extern void idt_load(struct idtr_desc* ptr);
 extern void int21h();
 extern void no_interrupt();
+
 void int21h_handler(){
     print("key pressed\n");
     outb(0x20, 0x20);

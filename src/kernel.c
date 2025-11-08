@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include "idt/idt.h"
 #include "io/io.h"
+#include "memory/heap/kheap.h"
 
 uint16_t* video_mem = 0;
 uint16_t terminal_row = 0;
@@ -73,6 +74,19 @@ void print(const char* str)
 void kernel_main()
 {
     terminal_initialize();
-    print("hey J.K. (jost Klancik). terminal ne podpira posebne ASCII karakterje (se)");
+    print("hey J.K. (jost Klancik). terminal ne podpira posebne ASCII karakterje (se)\n");
+    
+    //initialize the heap
+    kheap_init();
+    
     idt_init();// Initialize the interrupt descriptor table
+
+    void* ptr = kmalloc(50);
+    void* ptr2 = kmalloc(5000);
+    void* ptr3 = kmalloc(5600);
+    kfree(ptr);
+    void* ptr4 = kmalloc(50);
+    if(ptr2 || ptr || ptr3 || ptr4){
+
+    }
 }

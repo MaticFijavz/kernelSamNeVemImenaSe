@@ -1,0 +1,34 @@
+#include "memory/heap/kheap.h"
+#include "config.h"
+#include "kernel.h"
+#include "memory/heap/heap.h"
+#include <stddef.h>
+
+struct heap kernel_heap;
+
+struct heap_table kernel_heap_table;
+
+void kheap_init(){
+    int total_table_entries = PEN15_HEAP_SIZE_BYTES / PEN15_HEAP_BLOCK_SIZE; //25600 (for now ?)
+    kernel_heap_table.entries = (HEAP_BLOCK_TABLE_ENTRY*)(PEN15_HEAP_TABLE_ADRESS);
+    kernel_heap_table.total = total_table_entries;
+
+    void* end = (void*)(PEN15_HEAP_ADDRESS + PEN15_HEAP_SIZE_BYTES);
+    int res = heap_create(&kernel_heap, (void*)PEN15_HEAP_ADDRESS, end, &kernel_heap_table);
+    if(res < 0){
+        print("Failed to create heap\n");
+        while (1) {
+        
+        }
+    }else{
+        print("heap successfully created\n");
+    }
+}
+
+void* kmalloc(size_t size){
+    return heap_malloc(&kernel_heap, size);
+}
+
+void kfree(void* ptr){
+    heap_free(&kernel_heap, ptr);
+}
