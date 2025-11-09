@@ -49,4 +49,5 @@ void idt_init()
 
     // Load the interrupt descriptor table
     idt_load(&idtr_descriptor);
+    enable_interrupts();
 }

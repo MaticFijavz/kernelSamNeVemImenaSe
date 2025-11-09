@@ -80,13 +80,4 @@ void kernel_main()
     kheap_init();
     
     idt_init();// Initialize the interrupt descriptor table
-
-    void* ptr = kmalloc(50);
-    void* ptr2 = kmalloc(5000);
-    void* ptr3 = kmalloc(5600);
-    kfree(ptr);
-    void* ptr4 = kmalloc(50);
-    if(ptr2 || ptr || ptr3 || ptr4){
-
-    }
 }
