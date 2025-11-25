@@ -5,6 +5,7 @@
 #include "io/io.h"
 #include "memory/heap/kheap.h"
 #include "memory/paging/paging.h"
+#include "pci.h"
 
 uint16_t* video_mem = 0;
 uint16_t terminal_row = 0;
@@ -92,4 +93,23 @@ void kernel_main()
     enable_paging();
 
     enable_interrupts(); // enable interrupts, if we enable them before the idt shit happens
+    pci_init();
+    print("Koncano.\n");
+}
+
+void print_hex(uint32_t val)
+{
+    char hex[11];
+    hex[0] = '0';
+    hex[1] = 'x';
+    hex[10] = '\0';
+
+    char* digits ="0123456789ABCDEF";
+
+    for (int i = 0; i < 8; i++)
+    {
+        uint8_t nibble = (val >> (28 - i * 4)) & 0xF;
+        hex[2 + i] = digits[nibble];
+    }
+    print(hex);
 }
