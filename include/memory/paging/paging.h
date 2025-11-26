@@ -23,4 +23,7 @@ void paging_switch(uint32_t* directory);
 void enable_paging();
 uint32_t* paging_4gb_chunk_get_directory(struct paging_4gb_chunk* chunk);
 
+int paging_get_indexes(void* virtual_address, uint32_t* directory_index_out, uint32_t* table_index_out);
+void paging_map_to(struct paging_4gb_chunk* directory, void* virt, void* phys, uint8_t flags);
+
 #endif

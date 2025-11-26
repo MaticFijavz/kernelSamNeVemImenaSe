@@ -53,5 +53,12 @@ all: ./bin/boot.bin ./bin/kernel.bin
 	i686-elf-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c ./src/pci.c -o ./build/pci.o
 
 clean:
-	find ./bin/ -maxdepth 1 -type f -delete
-	find ./build/ -maxdepth 3 -type f -delete
+	-del /Q .\\build\\*.o
+	-del /Q .\\build\\idt\\*.o
+	-del /Q .\\build\\memory\\*.o
+	-del /Q .\\build\\memory\\heap\\*.o
+	-del /Q .\\build\\memory\\paging\\*.o
+	-del /Q .\\build\\kernelfull.o
+	-del /Q .\\bin\\boot.bin
+	-del /Q .\\bin\\kernel.bin
+	-del /Q .\\bin\\os.bin

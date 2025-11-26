@@ -72,7 +72,7 @@ void print(const char* str)
         terminal_writechar(str[i], 15);
     }
 }
-static struct paging_4gb_chunk* kernel_chunk = 0;
+struct paging_4gb_chunk* kernel_chunk = 0;
 void kernel_main()
 {
     terminal_initialize();
@@ -93,7 +93,7 @@ void kernel_main()
     enable_paging();
 
     enable_interrupts(); // enable interrupts, if we enable them before the idt shit happens
-    pci_init();
+    pci_init(kernel_chunk);
     print("Koncano.\n");
 }
 

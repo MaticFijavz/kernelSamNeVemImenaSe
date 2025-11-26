@@ -1,6 +1,7 @@
 #ifndef PCI_H
 #define PCI_H
 #include <stdint.h>
+struct paging_4gb_chunk;
 //PCI Configuration Space I/O Ports
 #define PCI_CONFIG_ADDRESS 0xCF8
 #define PCI_CONFIG_DATA    0xCFC
@@ -18,5 +19,7 @@ struct pci_device_descriptor
     uint8_t revision_id;
 };
 
-void pci_init();
+void pci_init(struct paging_4gb_chunk* kernel_paging_chunk);
+void pci_check_device(uint8_t bus, uint8_t device, struct paging_4gb_chunk* chunk);
+
 #endif
